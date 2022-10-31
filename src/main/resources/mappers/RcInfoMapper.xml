@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rcb.rck.model.dao.RcInfoMapper">
+  <resultMap id="BaseResultMap" type="com.rcb.rck.model.pojo.RcInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="birthday" jdbcType="VARCHAR" property="birthday" />
+    <result column="parties" jdbcType="VARCHAR" property="parties" />
+    <result column="work" jdbcType="VARCHAR" property="work" />
+    <result column="education" jdbcType="INTEGER" property="education" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="unit_category" jdbcType="INTEGER" property="unitCategory" />
+    <result column="unit_name" jdbcType="VARCHAR" property="unitName" />
+    <result column="level" jdbcType="INTEGER" property="level" />
+    <result column="duties_category" jdbcType="INTEGER" property="dutiesCategory" />
+    <result column="policy_id" jdbcType="VARCHAR" property="policyId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, `name`, sex, birthday, parties, `work`, education, phone, mobile, unit_category, 
+    unit_name, `level`, duties_category, policy_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from rck_rc_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from rck_rc_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rcb.rck.model.pojo.RcInfo">
+    insert into rck_rc_info (id, `name`, sex, 
+      birthday, parties, `work`, 
+      education, phone, mobile, 
+      unit_category, unit_name, `level`, 
+      duties_category, policy_id)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, 
+      #{birthday,jdbcType=VARCHAR}, #{parties,jdbcType=VARCHAR}, #{work,jdbcType=VARCHAR}, 
+      #{education,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{unitCategory,jdbcType=INTEGER}, #{unitName,jdbcType=VARCHAR}, #{level,jdbcType=INTEGER}, 
+      #{dutiesCategory,jdbcType=INTEGER}, #{policyId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rcb.rck.model.pojo.RcInfo">
+    insert into rck_rc_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="parties != null">
+        parties,
+      </if>
+      <if test="work != null">
+        `work`,
+      </if>
+      <if test="education != null">
+        education,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="unitCategory != null">
+        unit_category,
+      </if>
+      <if test="unitName != null">
+        unit_name,
+      </if>
+      <if test="level != null">
+        `level`,
+      </if>
+      <if test="dutiesCategory != null">
+        duties_category,
+      </if>
+      <if test="policyId != null">
+        policy_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="parties != null">
+        #{parties,jdbcType=VARCHAR},
+      </if>
+      <if test="work != null">
+        #{work,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        #{education,jdbcType=INTEGER},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="unitCategory != null">
+        #{unitCategory,jdbcType=INTEGER},
+      </if>
+      <if test="unitName != null">
+        #{unitName,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=INTEGER},
+      </if>
+      <if test="dutiesCategory != null">
+        #{dutiesCategory,jdbcType=INTEGER},
+      </if>
+      <if test="policyId != null">
+        #{policyId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rcb.rck.model.pojo.RcInfo">
+    update rck_rc_info
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="parties != null">
+        parties = #{parties,jdbcType=VARCHAR},
+      </if>
+      <if test="work != null">
+        `work` = #{work,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        education = #{education,jdbcType=INTEGER},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="unitCategory != null">
+        unit_category = #{unitCategory,jdbcType=INTEGER},
+      </if>
+      <if test="unitName != null">
+        unit_name = #{unitName,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null">
+        `level` = #{level,jdbcType=INTEGER},
+      </if>
+      <if test="dutiesCategory != null">
+        duties_category = #{dutiesCategory,jdbcType=INTEGER},
+      </if>
+      <if test="policyId != null">
+        policy_id = #{policyId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rcb.rck.model.pojo.RcInfo">
+    update rck_rc_info
+    set `name` = #{name,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=INTEGER},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      parties = #{parties,jdbcType=VARCHAR},
+      `work` = #{work,jdbcType=VARCHAR},
+      education = #{education,jdbcType=INTEGER},
+      phone = #{phone,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      unit_category = #{unitCategory,jdbcType=INTEGER},
+      unit_name = #{unitName,jdbcType=VARCHAR},
+      `level` = #{level,jdbcType=INTEGER},
+      duties_category = #{dutiesCategory,jdbcType=INTEGER},
+      policy_id = #{policyId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
