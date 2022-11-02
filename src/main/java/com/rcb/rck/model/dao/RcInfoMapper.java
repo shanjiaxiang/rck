@@ -16,4 +16,6 @@ public interface RcInfoMapper {
     int updateByPrimaryKeySelective(RcInfo record);
 
     int updateByPrimaryKey(RcInfo record);
+
+    RcInfo selectByName(String name);
 }

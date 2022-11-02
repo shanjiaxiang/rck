@@ -196,4 +196,12 @@
       policy_id = #{policyId,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+
+  <select id="selectByName" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from rck_rc_info
+    where name = #{name,jdbcType=VARCHAR}
+  </select>
 </mapper>
